@@ -177,7 +177,7 @@ KILL_ROUTE="/sbin/iptables -I INPUT -s $TARGET$ -j DROP"
 ```
 4. Comment the following lines:
 ```console
-KILL_ROUTE="/sbin/route add -host $TARGET$ reject"
+#KILL_ROUTE="/sbin/route add -host $TARGET$ reject"
 ```
 5. Restart service and check status:
 `sudo service portsentry restart`
