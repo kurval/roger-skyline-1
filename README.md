@@ -248,7 +248,9 @@ fi
 2. Give it permissions:
 `sudo chmod 755 cron_monitor.sh`
 3. Edit crontab by adding the following line:
-`0 0 * * * sudo ~/scripts/cron_monitor.sh`
+```console
+0 0 * * * sudo ~/scripts/cron_monitor.sh
+```
 To read simply type the following command:
 `mail`
 OR
