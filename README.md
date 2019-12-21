@@ -41,12 +41,12 @@ server machine.
 https://linuxconfig.org/how-to-setup-a-static-ip-address-on-debian-linux
 1. In the virtual box network settings change NAT -> Bridged Adapter
 2. Edit the file /etc/network/interfaces and setup our primary network: 
-```
+```console
    #The primary network interface
    auto enp0s3
 ```
 3. Creating enp0s3 file into directory /etc/network/interfaces.d/ and add text:
-```
+```console
  iface enp0s3 inet static
     address 10.11.203.255
     netmask 255.255.255.252
@@ -109,7 +109,7 @@ https://www.garron.me/en/go2linux/fail2ban-protect-web-server-http-dos-attack.ht
 1. Sudo apt-get install fail2ban
 (You need to have apache2 installed or add logpath for HTTP later)
 2. Create local file `sudo nano /etc/fail2ban/jail.d/jail-debian.local`
-```
+```console
   [DEFAULT]
   bantime  = 10m
   findtime  = 10m
@@ -136,7 +136,7 @@ https://www.garron.me/en/go2linux/fail2ban-protect-web-server-http-dos-attack.ht
 ```
 3. Create the filter:
 create file /etc/fail2ban/filter.d/http-get-dos.conf and copy the text below in it:
-```
+```console
   [Definition]
   failregex = ^<HOST> -.*"(GET|POST).*
   ignoreregex =
@@ -162,19 +162,23 @@ Fail 2ban blocking the IP addresses of connections that perform unsuccessful aut
 https://en-wiki.ikoula.com/en/To_protect_against_the_scan_of_ports_with_portsentry
 Install portsentry: `sudo apt-get update && apt-get install portsentry`
 1. Edit the /etc/default/portsentry
-```
+```console
 TCP_MODE="atcp"
 UDP_MODE="audp"
 ```
 2. Edit the file /etc/portsentry/portsentry.conf to block UDP/TCP scans
-```
+```console
 BLOCK_UDP="1"
 BLOCK_TCP="1"
 ```
 3. Uncomment the following one:
-`KILL_ROUTE="/sbin/iptables -I INPUT -s $TARGET$ -j DROP"`
+```console
+KILL_ROUTE="/sbin/iptables -I INPUT -s $TARGET$ -j DROP"
+```
 4. Comment the following lines:
-`KILL_ROUTE="/sbin/route add -host $TARGET$ reject"`
+```console
+KILL_ROUTE="/sbin/route add -host $TARGET$ reject"
+```
 5. Restart service and check status:
 `sudo service portsentry restart`
 `sudo service portsentry status`
@@ -187,7 +191,7 @@ To check all processes: `systemctl list-units --type service --all`
 Check processes that are enabled: `sudo systemctl list-unit-files --type service | grep enabled`
 
 Services needed for this project:
-```
+```bash
 apache2.service                        enabled //for web server
 apparmor.service                       enabled //mandatory access controls
 autovt@.service                        enabled //for login
@@ -210,7 +214,7 @@ ufw.service                            enabled //for ufw
 
 ## #Update Packages Script <a id="updateScript"></a>
 1. Create a script: `nano update.sh`
-```
+```console
 #!/bin/bash
 sudo apt-get update -y >> /var/log/update.log
 sudo apt-get upgrade -y >> /var/log/update.log
@@ -221,7 +225,7 @@ sudo apt-get upgrade -y >> /var/log/update.log
 3. To automate execution, we must edit the crontab file:
 `sudo crontab -e`
 To which we add the lines:
-```
+```console
 0 4 * * 0 sudo ~scripts/update.sh
 @reboot sudo ~/scripts/update.sh
 ```
@@ -233,7 +237,7 @@ Install mail:
 `sudo apt install mailutils`
 1. Create a script:
 `nano cron_monitor.sh`
-```
+```console
 #!/bin/bash
 DIFF=$(diff /etc/crontab.back /etc/crontab)
 cat /etc/crontab > /etc/crontab.back
@@ -264,7 +268,7 @@ Configure a web server with these instructions and you can create a script that 
 After this you can create a cron job that runs the script for example once in a week.
 !This of course requires that temp folder is updated from host machine before crontab happens!
 1. Create script to ~/scripts/update_files.sh
-```
+```console
 #!/bin/bash
 DIFF=$(diff ~/temp/index.html /var/www/html/index.html)
 if [ "$DIFF" != "" ]; then
