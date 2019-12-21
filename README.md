@@ -279,4 +279,6 @@ if [ "$DIFF" != "" ]; then
 fi
 ```
 2. Add cronjob with `sudo crontab -e`
-`0 0 * * * sudo ~/scripts/update_files.sh`
+```console
+0 0 * * * sudo ~/scripts/update_files.sh
+```
