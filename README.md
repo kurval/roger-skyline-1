@@ -266,7 +266,7 @@ After this you can create a cron job that runs the script for example once in a 
 1. Create script to ~/scripts/update_files.sh
 ```
 #!/bin/bash
-DIFF=$(diff ~/temp/example.html /var/www/html/index.html)
+DIFF=$(diff ~/temp/index.html /var/www/html/index.html)
 if [ "$DIFF" != "" ]; then
     sudo cp ~/temp/example.html /var/www/html/index.html
     echo "index.html changed, notifying admin." | mail -s "Deployment done" root
