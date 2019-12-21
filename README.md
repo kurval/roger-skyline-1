@@ -256,7 +256,7 @@ To read simply type the following command:
 OR
 `mailx`
 
-## #Deploy a Web application reachable on the machine IP's and Configure SSL Certificates <a id="apache"></a>
+## #Self-signed SSL and Debloyment <a id="apache"></a>
 https://linuxize.com/post/how-to-install-apache-on-debian-10/
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-debian-10
 https://haydencdjames.io/linux-securely-copy-files-using-scp/
