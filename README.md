@@ -260,7 +260,7 @@ https://haydencdjames.io/linux-securely-copy-files-using-scp/
 3. Create a Self-Signed SSL Certificate for Apache (follow instructions link)
 
 ## #Deployment Automation <a id="automation"></a>
-Configure a web server with these instructions and you can create a script that copies updated html file from temp folder and adds it to /var/www/html/ if there is changes. Also sending mail to root.
+Configure a web server with these instructions and you can create a script that copies updated html file from temp folder and add it to /var/www/html/ if there is changes. Also sending mail to root.
 After this you can create a cron job that runs the script for example once in a week.
 !This of course requires that temp folder is update from host machine before crontab happens!
 1. Create script to ~/scripts/update_files.sh
