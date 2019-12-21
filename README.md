@@ -1,7 +1,7 @@
 # roger-skyline-1
 42 roger-skyline-1 project let you start your own web server. 
 
-## Contents
+## #Contents
 
 - [Introduction](#introduction)
 - [Debian VM Installation](#VMinstall)
@@ -19,25 +19,25 @@
 - [Self-signed SSL and Debloyment](#apache)
 - [Deployment Automation](#automation)
 
-## Introduction <a id="introduction"></a>
+## #Introduction <a id="introduction"></a>
 roger-skyline-1 let you install a Virtual Machine, discover the
 basics about system and network administration as well as a lots of services used on a
 server machine.
 
-## Debian VM Installation <a id="VMinstall"></a>
+## #Debian VM Installation <a id="VMinstall"></a>
 1. Install Debian 10.2 VM with Oracle Virtual Box
 2. Creating one primary partition (4.2GB) mounted on / and other one logical on /home
 3. Not installing desktop environment
 
-## Updating OS Packages <a id="OSupdate"></a>
+## #Updating OS Packages <a id="OSupdate"></a>
 1. First installing sudo -> apt install sudo
 2. Get packages up to date -> `sudo apt update` -> `sudo apt upgrade`
 
-## Creating Nonroot User <a id="adduser"></a>
+## #Creating Nonroot User <a id="adduser"></a>
 1. Adding non root user and adding sudo rights -> `sudo adduser login` -> `sudo adduser login sudo`
 2. Or you can give sudo rights by modifying sudoers file with `sudo visudo` command
 
-## Configure a Static IP <a id="staticIP"></a>
+## #Configure a Static IP <a id="staticIP"></a>
 https://linuxconfig.org/how-to-setup-a-static-ip-address-on-debian-linux
 1. In the virtual box network settings change NAT -> Bridged Adapter
 2. Edit the file /etc/network/interfaces and setup our primary network: 
@@ -59,7 +59,7 @@ Pick IP that is not taken.
 `sudo service networking restart`
 `ip a`
 
-## Change the SSH Default Port <a id="sshPort"></a>
+## #Change the SSH Default Port <a id="sshPort"></a>
 https://www.linuxlookup.com/howto/change_default_ssh_port
 1. Modify /etc/ssh/sshd_config
 2. Change #Port 22 to port of your choice '50113' 
@@ -67,7 +67,7 @@ https://www.linuxlookup.com/howto/change_default_ssh_port
 `sudo /etc/init.d/ssh restart`
 6. Verify SSH is listening on the new port by connecting to it: ssh valtteri@10.11.203.255 -p 50113
 
-## Setup SSH Access With Publickeys <a id="sshPubkey"></a>
+## #Setup SSH Access With Publickeys <a id="sshPubkey"></a>
 https://www.linode.com/docs/security/authentication/use-public-key-authentication-with-ssh/
 1. Use `ssh-keygen -t rsa` to generate a rsa public/private key pair
 2. Just press Enter to accept the default location and file name.
@@ -85,7 +85,7 @@ This command will generate 2 files id_rsa and id_rsa.pub
 `sudo service sshd status`
 6. Test to connect remotely and check that login is only allowed with public key
 
-## Firewall Setup With UFW <a id="ufw"></a>
+## #Firewall Setup With UFW <a id="ufw"></a>
 https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04
 1. First install ufw with sudo apt install ufw
 2. Set the following rules
@@ -103,7 +103,7 @@ TCP is reliable as it guarantees delivery of data to the destination router.
 `sudo ufw enable`
 `sudo ufw status verbose`
 
-## DOS (Denial Of Service Attack) protection <a id="DOS"></a>
+## #DOS (Denial Of Service Attack) protection <a id="DOS"></a>
 Denial of service attacks are meant to load a server to a level where it can't serve the intended users with the service.
 https://www.garron.me/en/go2linux/fail2ban-protect-web-server-http-dos-attack.html
 1. Sudo apt-get install fail2ban
@@ -157,7 +157,7 @@ And by checking all of the banned ssh actions
 `sudo fail2ban-client status sshd`
 8. Tested to spam website (reduce maxretry first) and it should show on the log /var/log/fail2ban.log
 
-## Protection Against Port Scans <a id="scanSecure"></a>
+## #Protection Against Port Scans <a id="scanSecure"></a>
 Fail 2ban blocking the IP addresses of connections that perform unsuccessful authentication while portsentry, performs a blocking of IP addresses that are aiming to identify open ports on your Server
 https://en-wiki.ikoula.com/en/To_protect_against_the_scan_of_ports_with_portsentry
 Install portsentry: `sudo apt-get update && apt-get install portsentry`
@@ -181,7 +181,7 @@ BLOCK_TCP="1"
 6. You can check open ports and which application is listening on what port with `lsof -i -P`
 To list all Internet and network files, use the -i option.
 
-## Disable the Services We Don’t Need <a id="DisableServices"></a>
+## #Disable the Services We Don’t Need <a id="DisableServices"></a>
 https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
 To check all processes: `systemctl list-units --type service --all`
 Check processes that are enabled: `sudo systemctl list-unit-files --type service | grep enabled`
@@ -208,7 +208,7 @@ ufw.service                            enabled //for ufw
 1. You can disable rest of the services: 
 `sudo systemctl disable SERVICE_NAME`
 
-## Update Packages Script <a id="updateScript"></a>
+## #Update Packages Script <a id="updateScript"></a>
 1. Create a script: `nano update.sh`
 ```
 #!/bin/bash
@@ -227,7 +227,7 @@ To which we add the lines:
 ```
 This execute script every Sunday 4AM and when reboot
 
-## Monitor Crontab Changes Script <a id="cronScript"></a>
+## #Monitor Crontab Changes Script <a id="cronScript"></a>
 https://www.cyberciti.biz/faq/delete-all-root-email-mailbox/
 Install mail:
 `sudo apt install mailutils`
@@ -250,7 +250,7 @@ To read simply type the following command:
 OR
 `mailx`
 
-## Deploy a Web application reachable on the machine IP's and Configure SSL Certificates <a id="apache"></a>
+## #Deploy a Web application reachable on the machine IP's and Configure SSL Certificates <a id="apache"></a>
 https://linuxize.com/post/how-to-install-apache-on-debian-10/
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-debian-10
 https://haydencdjames.io/linux-securely-copy-files-using-scp/
@@ -259,7 +259,7 @@ https://haydencdjames.io/linux-securely-copy-files-using-scp/
 2. Install apache web server
 3. Create a Self-Signed SSL Certificate for Apache (follow instructions link)
 
-## Deployment Automation <a id="automation"></a>
+## #Deployment Automation <a id="automation"></a>
 Configure a web server with these instructions and you can create a script that copies updated html file from temp folder and adds it to /var/www/html/ if there is changes. Also sending mail to root.
 After this you can create a cron job that runs the script for example once in a week.
 !This of course requires that temp folder is update from host machine before crontab happens!
