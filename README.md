@@ -262,7 +262,7 @@ https://haydencdjames.io/linux-securely-copy-files-using-scp/
 ## #Deployment Automation <a id="automation"></a>
 Configure a web server with these instructions and you can create a script that copies updated html file from temp folder and add it to /var/www/html/ if there is changes. Also sending mail to root.
 After this you can create a cron job that runs the script for example once in a week.
-!This of course requires that temp folder is update from host machine before crontab happens!
+!This of course requires that temp folder is updated from host machine before crontab happens!
 1. Create script to ~/scripts/update_files.sh
 ```
 #!/bin/bash
