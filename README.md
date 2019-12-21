@@ -175,7 +175,7 @@ BLOCK_TCP="1"
 ```console
 KILL_ROUTE="/sbin/iptables -I INPUT -s $TARGET$ -j DROP"
 ```
-4. Comment the following lines:
+4. Comment the following line:
 ```console
 #KILL_ROUTE="/sbin/route add -host $TARGET$ reject"
 ```
