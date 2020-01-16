@@ -58,6 +58,8 @@ Pick IP that is not taken.
 4. Restart the network service and check new ip 
 `sudo service networking restart`
 `ip a`
+if enp0s3 is down run this command to enable
+`ip link set enp0s3 up`
 
 ## #Change the SSH Default Port <a id="sshPort"></a>
 https://www.linuxlookup.com/howto/change_default_ssh_port
