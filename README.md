@@ -80,7 +80,7 @@ This command will generate 2 files id_rsa and id_rsa.pub
         To do that we can use: `ssh-copy-id -i /Users/vkurkela/.ssh/id_rsa.pub valtteri@10.11.203.255 -p 50113`
         The key is automatically added in ~/.ssh/authorized_keys on the server
 4. Edit again the sshd_config file /etc/ssh/sshd_config to remove root login permit and password authentification
-    -Change #PasswordAuthentication to to PasswordAuthentication no
+    -Change #PasswordAuthentication to PasswordAuthentication no
     -Change #PermitRootLogin [...] to PermitRootLogin no and save
 5. Restart the SSH daemon service
 `sudo service sshd restart and check status`
