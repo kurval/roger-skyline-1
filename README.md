@@ -73,18 +73,18 @@ https://www.linuxlookup.com/howto/change_default_ssh_port
 https://www.linode.com/docs/security/authentication/use-public-key-authentication-with-ssh/
 1. Use `ssh-keygen -t rsa` to generate a rsa public/private key pair
 2. Just press Enter to accept the default location and file name.
-3. Add passphrase when prompted.
-This command will generate 2 files id_rsa and id_rsa.pub
-    -id_rsa: Our private key, should be keep safely, She can be crypted with a password.
-    -id_rsa.pub Our public key, you have to transfer this one to the server.
-        To do that we can use: `ssh-copy-id -i /Users/vkurkela/.ssh/id_rsa.pub valtteri@10.11.203.255 -p 50113`
-        The key is automatically added in ~/.ssh/authorized_keys on the server
-4. Edit again the sshd_config file /etc/ssh/sshd_config to remove root login permit and password authentification
-    -Change #PasswordAuthentication to PasswordAuthentication no
-    -Change #PermitRootLogin [...] to PermitRootLogin no and save
-5. Restart the SSH daemon service
-`sudo service sshd restart and check status`
-`sudo service sshd status`
+3. Add passphrase when prompted.  
+This command will generate 2 files id_rsa and id_rsa.pub  
+    -id_rsa: Our private key, should be keep safely, can be crypted with a password.  
+    -id_rsa.pub Our public key, you have to transfer this one to the server.  
+        To do that we can use: `ssh-copy-id -i /Users/vkurkela/.ssh/id_rsa.pub valtteri@10.11.203.255 -p 50113`  
+        The key is automatically added in ~/.ssh/authorized_keys on the server  
+4. Edit again the sshd_config file /etc/ssh/sshd_config to remove root login permit and password authentification  
+    -Change #PasswordAuthentication to PasswordAuthentication no  
+    -Change #PermitRootLogin [...] to PermitRootLogin no and save  
+5. Restart the SSH daemon service  
+`sudo service sshd restart and check status`  
+`sudo service sshd status`  
 6. Test to connect remotely and check that login is only allowed with public key
 
 ## #Firewall Setup With UFW <a id="ufw"></a>
