@@ -98,12 +98,12 @@ sudo ufw allow 443
 sudo ufw allow 80/tcp
 sudo ufw allow 50113/tcp
 ```
-Note that port 80/tcp is HTTP (only for TCP not UDP), 443 is HTTPS, and 50113 is SSH.
+Note that port 80/tcp is HTTP (only for TCP not UDP), 443 is HTTPS, and 50113 is SSH.  
 TCP is reliable as it guarantees delivery of data to the destination router.
 
 3. Enable service and check your rules
 `sudo ufw enable`
-`sudo ufw status verbose`
+`sudo ufw status verbose`  
 
 ## #DOS (Denial Of Service Attack) protection <a id="DOS"></a>
 Denial of service attacks are meant to load a server to a level where it can't serve the intended users with the service.
