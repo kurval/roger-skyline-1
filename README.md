@@ -151,7 +151,7 @@ ignoreregex patterns to filter out what is normal server activity.
 5. Activate fail2ban 
 `sudo systemctl enable fail2ban`
 6. Check status of fail2ban: 
-`sudo systemctl status fail2ban`
+`sudo systemctl status fail2ban`  
 *You can an also see the rules added by Fail2Ban by running the following command: `sudo iptables -L`
 7. Tested with failed ssh login attempts against 10.11.201.251 and checking that it shows on the log file: 
 `tail -f /var/log/fail2ban.log`
