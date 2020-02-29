@@ -161,7 +161,7 @@ And by checking all of the banned ssh actions
 
 ## #Protection Against Port Scans <a id="scanSecure"></a>
 Fail 2ban blocking the IP addresses of connections that perform unsuccessful authentication while portsentry, performs a blocking of IP addresses that are aiming to identify open ports on your Server
-https://en-wiki.ikoula.com/en/To_protect_against_the_scan_of_ports_with_portsentry
+https://en-wiki.ikoula.com/en/To_protect_against_the_scan_of_ports_with_portsentry  
 Install portsentry: `sudo apt-get update && apt-get install portsentry`
 1. Edit the /etc/default/portsentry
 ```console
