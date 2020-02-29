@@ -188,8 +188,8 @@ KILL_ROUTE="/sbin/iptables -I INPUT -s $TARGET$ -j DROP"
 To list all Internet and network files, use the -i option.
 
 ## #Disable the Services We Don’t Need <a id="DisableServices"></a>
-https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
-To check all processes: `systemctl list-units --type service --all`
+https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units  
+To check all processes: `systemctl list-units --type service --all`  
 Check processes that are enabled: `sudo systemctl list-unit-files --type service | grep enabled`
 
 Services needed for this project:
