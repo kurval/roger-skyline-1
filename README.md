@@ -34,7 +34,7 @@ server machine.
 2. Get packages up to date -> `sudo apt update` -> `sudo apt upgrade`
 
 ## #Creating Nonroot User <a id="adduser"></a>
-1. Adding non root user and adding sudo rights -> `sudo adduser login` -> `sudo adduser login sudo`
+1. Adding non root user and adding sudo rights -> `sudo adduser <username>` -> `sudo adduser <username> sudo`
 2. Or you can give sudo rights by modifying sudoers file with `sudo visudo` command
 
 ## #Configure a Static IP <a id="staticIP"></a>
@@ -78,7 +78,7 @@ This command will generate 2 files id_rsa and id_rsa.pub
     -id_rsa: Our private key, should be keep safely, can be crypted with a password.  
     -id_rsa.pub Our public key, you have to transfer this one to the server.  
         To do that we can use: `ssh-copy-id -i /Users/vkurkela/.ssh/id_rsa.pub valtteri@10.11.203.255 -p 50113`  
-        The key is automatically added in ~/.ssh/authorized_keys on the server  
+        The key is automatically added in to folder: ~/.ssh/authorized_keys on the server  
 4. Edit again the sshd_config file /etc/ssh/sshd_config to remove root login permit and password authentification  
     -Change #PasswordAuthentication to PasswordAuthentication no  
     -Change #PermitRootLogin [...] to PermitRootLogin no and save  
